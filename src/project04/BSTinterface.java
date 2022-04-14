@@ -45,10 +45,10 @@ public interface BSTinterface<E extends Comparable<E>> {
 	 public void delete();
 	 
 	 /*
-	  * gets passed Node
-	  * @param Node<E>
+	  * gets current node
+	  * @param
 	  */
-	 public Node<E> getNode(Node<E> item);
+	 public Node<E> getNode();
 	 
 	 /*
 	  * sorts BST

@@ -1,4 +1,9 @@
 package project04;
+/**
+ * Represents a BST.
+ * @author Stephen Alvarez
+ * @version 1.0
+ */
 
 import java.lang.reflect.Array;
 
@@ -21,52 +26,56 @@ public class BST<E extends Comparable<E>>{
 	}
 
 	public Node<E> getRoot(){
-		return current;
+		return root;
 
 	}
 
 	public void changeRoot(Node<E> newRoot){
-
+		//Needs to be implemented
 	}
 
 	public boolean isEmpty(){
+		if (this.root == null) {
+			return true;
+		}
 		return false;
-
 	}
 
 	public void makeEmpty(){
-
+		root = new Node<E>();
 	}
 
 	public boolean search(Node<E> item){
+		//Needs to be implemented
 		return false;
 
 	}
 
 	public void insert(Node<E> item){
-
+		//Needs to be implemented
 	}
 
 	public void delete(){
-
+		//Needs to be implemented
 	}
 
-	public Node<E> getNode(Node<E> item){
-		return item;
+	public Node<E> getNode(){
+		return current;
 
 	}
 
 	public void sort(){
-
+		//Needs to be implemented
 	}
 
 	public int size(){
+		//Needs to be implemented
 		return count;
 
 	}
 
 	public Array[] convertBSTtoArr(){
+		//Needs to be implemented
 		return null;
-
 	}
 }
