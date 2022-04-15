@@ -19,8 +19,8 @@ public class BST<E extends Comparable<E>>{
 		this.count = 0;
 	}
 
-	public BST(E rootItem){
-		this.root = new Node<E>(rootItem, null, null);
+	public BST(Node<E> root){
+		this.root = root;
 		this.current = this.root;
 		this.count = 0;
 	}
@@ -32,7 +32,6 @@ public class BST<E extends Comparable<E>>{
 
 	public void changeRoot(Node<E> newRoot){
 		//Needs to be implemented
-		
 	}
 
 	public boolean isEmpty(){
@@ -46,33 +45,23 @@ public class BST<E extends Comparable<E>>{
 		root = new Node<E>();
 	}
 
-	public boolean search(Node<E> newNode){
+	public boolean search(Node<E> item){
 		//Needs to be implemented
 		return false;
 
 	}
 
-	public void insert(Node<E> newNode){
+	public void insert(Node<E> item){
 		//Needs to be implemented
-		//if empty add root
-		
-		//else if root has no children, compare node to root
-		
-		//else if root has children, compare node to root then move to child and compare
-		
-		//else set node equal to left or right depending on comparison
-		
-		if (isEmpty() == true) {
-			this.root = newNode;
-		}else if (this.root.getLeft() == null && this.root.getRight() == null) {
-			
-		}
-		
-		
 	}
 
 	public void delete(){
 		//Needs to be implemented
+	}
+
+	public Node<E> getNode(){
+		return current;
+
 	}
 
 	public void sort(){

@@ -31,13 +31,13 @@ public interface BSTinterface<E extends Comparable<E>> {
 	  * searches for passed node in BST
 	  * @return boolean
 	  */
-	 public boolean search(Node<E> newNode);
+	 public boolean search(Node<E> item);
 	 
 	 /*
 	  * inserts node into BST
 	  * @param Node<E>
 	  */
-	 public void insert(Node<E> newNode);
+	 public void insert(Node<E> item);
 	 
 	 /*
 	  * deletes current Node

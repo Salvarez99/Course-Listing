@@ -1,9 +1,4 @@
 package project04;
-/**
- * Represents a Class.
- * @author Stephen Alvarez
- * @version 1.0
- */
 
 public class ClassAttributes {
 	private int classNumber;
@@ -67,5 +62,6 @@ public class ClassAttributes {
 	public void setLevel(String level) {
 		this.level = level;
 	}
+
 
 }
