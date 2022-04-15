@@ -5,7 +5,7 @@ package project04;
  * @version 1.0
  */
 
-public class Node<E extends Comparable<E>> {
+public class TreeNode<E extends Comparable<E>> {
 
 	/**
 	 * The element of this node
@@ -15,17 +15,17 @@ public class Node<E extends Comparable<E>> {
 	/**
 	 * The link to the left node
 	 */
-	Node<E> left;
+	TreeNode<E> left;
 	
 	/**
 	 * The link to the right node
 	 */
-	Node<E> right;
+	TreeNode<E> right;
 	
 	/**
 	 * Constructs a default node.
 	 */
-	public Node(){
+	public TreeNode(){
 		this(null, null, null);
 	}
 	
@@ -35,7 +35,7 @@ public class Node<E extends Comparable<E>> {
 	 * 		  left A reference to the left node 
 	 * 		  right A reference to the right node
 	 */
-	public Node(Object item, Node<E> left, Node<E> right) {
+	public TreeNode(Object item, TreeNode<E> left, TreeNode<E> right) {
 		this.item = item;
 		this.left = left;
 		this.right = right;
@@ -46,7 +46,7 @@ public class Node<E extends Comparable<E>> {
 	 * @param item A reference to the item of this node
 	 * 		  left A reference to the left node
 	 */
-	public Node(Node<E> left, Object item) {
+	public TreeNode(TreeNode<E> left, Object item) {
 		this.left = left;
 		this.item = item;
 	}
@@ -56,7 +56,7 @@ public class Node<E extends Comparable<E>> {
 	 * @param item A reference to the item of this node
 	 * 		  right A reference to the right node
 	 */
-	public Node(Object item, Node<E> right) {
+	public TreeNode(Object item, TreeNode<E> right) {
 		this.item = item;
 		this.right = right;
 	}
@@ -81,7 +81,7 @@ public class Node<E extends Comparable<E>> {
 	 * Returns the left reference of this node.
 	 * @return A reference to the left node of this node
 	 */
-	public Node<E> getLeft() {
+	public TreeNode<E> getLeft() {
 		return left;
 	}
 	
@@ -89,7 +89,7 @@ public class Node<E extends Comparable<E>> {
 	 * Changes the left reference of this node
 	 * @param left A reference to the next node of this node
 	 */
-	public void setLeft(Node<E> left) {
+	public void setLeft(TreeNode<E> left) {
 		this.left = left;
 	}
 	
@@ -97,7 +97,7 @@ public class Node<E extends Comparable<E>> {
 	 * Returns the right reference of this node.
 	 * @return A reference to the right node of this node
 	 */
-	public Node<E> getRight() {
+	public TreeNode<E> getRight() {
 		return right;
 	}
 	
@@ -105,7 +105,7 @@ public class Node<E extends Comparable<E>> {
 	 * Changes the right reference of this node
 	 * @param right A reference to the next node of this node
 	 */
-	public void setRight(Node<E> right) {
+	public void setRight(TreeNode<E> right) {
 		this.right = right;
 	}
 	

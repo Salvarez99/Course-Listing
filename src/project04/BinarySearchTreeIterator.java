@@ -5,8 +5,8 @@ package project04;
  * @version 1.0
  */
 
-public class BSTiterator implements BSTiteratorInterface {
-	private BST tree = new BST();
+public class BinarySearchTreeIterator {
+	//private BinarySearchTreeIterator tree = new BinarySearchTreeIterator();
 	
 	public int inorderTraversal(){
 		//Needs to be implemented

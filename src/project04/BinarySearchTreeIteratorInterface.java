@@ -1,6 +1,6 @@
 package project04;
 
-public interface BSTiteratorInterface {
+public interface BinarySearchTreeIteratorInterface {
 
 	
 	int inorderTraversal();

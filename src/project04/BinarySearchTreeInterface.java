@@ -1,20 +1,20 @@
 package project04;
 import java.lang.reflect.Array;
 
-public interface BSTinterface<E extends Comparable<E>> {
+public interface BinarySearchTreeInterface<E extends Comparable<E>> {
 
 	
 	 /*
 	  * gets Roots
-	  * @return Node<E> root
+	  * @return TreeNode<E> root
 	  */
-	 public Node<E> getRoot();
+	 public TreeNode<E> getRoot();
 	 
 	 /*
 	  * changes current root
-	  * @param Node<E> newRoot
+	  * @param TreeNode<E> newRoot
 	  */
-	 public void changeRoot(Node<E> newRoot);
+	 public void changeRoot(TreeNode<E> newRoot);
 	 
 	 /*
 	  * checks if bst is empty
@@ -31,16 +31,16 @@ public interface BSTinterface<E extends Comparable<E>> {
 	  * searches for passed node in BST
 	  * @return boolean
 	  */
-	 public boolean search(Node<E> newNode);
+	 public boolean search(TreeNode<E> newTreeNode);
 	 
 	 /*
 	  * inserts node into BST
-	  * @param Node<E>
+	  * @param TreeNode<E>
 	  */
-	 public void insert(Node<E> newNode);
+	 public void insert(TreeNode<E> newTreeNode);
 	 
 	 /*
-	  * deletes current Node
+	  * deletes current TreeNode
 	  */
 	 public void delete();
 	 
@@ -48,7 +48,7 @@ public interface BSTinterface<E extends Comparable<E>> {
 	  * gets current node
 	  * @param
 	  */
-	 public Node<E> getNode();
+	 public TreeNode<E> getTreeNode();
 	 
 	 /*
 	  * sorts BST

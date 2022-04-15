@@ -1,6 +1,6 @@
 package project04;
 
-public interface ClassAttributesInterface {
+public interface CourseInterface {
 
 	/*
 	 * gets class number

@@ -5,14 +5,14 @@ package project04;
  * @version 1.0
  */
 
-public class ClassAttributes implements Comparable<ClassAttributes> {
+public class Course implements Comparable<Course> {
 	private int classNumber;
 	private String courseSubject;
 	private int catalogNumber;
 	private String classTitle;
 	private String level;
 
-	public ClassAttributes(){
+	public Course(){
 		this.classNumber = 0;
 		this.courseSubject = "";
 		this.catalogNumber = 0;
@@ -20,7 +20,7 @@ public class ClassAttributes implements Comparable<ClassAttributes> {
 		this.level = "";
 	}
 
-	public ClassAttributes(int classNumber, String courseSubject, int catalogNumber, String classTitle, String level) {
+	public Course(int classNumber, String courseSubject, int catalogNumber, String classTitle, String level) {
 		this.classNumber = classNumber;
 		this.courseSubject = courseSubject;
 		this.catalogNumber = catalogNumber;
@@ -69,7 +69,7 @@ public class ClassAttributes implements Comparable<ClassAttributes> {
 	}
 
 	@Override
-	public int compareTo(ClassAttributes course) {
+	public int compareTo(Course course) {
 		if (this.classNumber > course.classNumber) {
 			return 1;
 		}else 

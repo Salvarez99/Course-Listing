@@ -7,30 +7,30 @@ package project04;
 
 import java.lang.reflect.Array;
 
-public class BST<E extends Comparable<E>>{
+public class BinarySearchTree<E extends Comparable<E>>{
 
-	Node<E> root;
-	Node<E> current;
+	TreeNode<E> root;
+	TreeNode<E> current;
 	int count;
 
-	public BST(){
-		this.root = new Node<E>();
-		this.current = new Node<E>();
+	public BinarySearchTree(){
+		this.root = new TreeNode<E>();
+		this.current = new TreeNode<E>();
 		this.count = 0;
 	}
 
-	public BST(E rootItem){
-		this.root = new Node<E>(rootItem, null, null);
+	public BinarySearchTree(E rootItem){
+		this.root = new TreeNode<E>(rootItem, null, null);
 		this.current = this.root;
 		this.count = 0;
 	}
 
-	public Node<E> getRoot(){
+	public TreeNode<E> getRoot(){
 		return root;
 
 	}
 
-	public void changeRoot(Node<E> newRoot){
+	public void changeRoot(TreeNode<E> newRoot){
 		//Needs to be implemented
 		
 	}
@@ -43,16 +43,16 @@ public class BST<E extends Comparable<E>>{
 	}
 
 	public void makeEmpty(){
-		root = new Node<E>();
+		root = new TreeNode<E>();
 	}
 
-	public boolean search(Node<E> newNode){
+	public boolean search(TreeNode<E> newTreeNode){
 		//Needs to be implemented
 		return false;
 
 	}
 
-	public void insert(Node<E> newNode){
+	public void insert(TreeNode<E> newTreeNode){
 		//Needs to be implemented
 		//if empty add root
 		
@@ -63,7 +63,7 @@ public class BST<E extends Comparable<E>>{
 		//else set node equal to left or right depending on comparison
 		
 		if (isEmpty() == true) {
-			this.root = newNode;
+			this.root = newTreeNode;
 		}else if (this.root.getLeft() == null && this.root.getRight() == null) {
 			
 		}
