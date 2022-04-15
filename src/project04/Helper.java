@@ -6,9 +6,11 @@ public class Helper {
 	}
 
 	public static void create(){
-		ClassAttributes obj = new ClassAttributes(123, "Science", 401, "Title", "Undergraduate");
+		Course obj = new Course(123, "Science", 401, "Title", "Undergraduate");
 		
 		
-		BST<ClassAttributes> tree = new BST(obj);
+		BinarySearchTree<Course> tree = new BinarySearchTree<Course>(obj);
+		
+		tree.isEmpty();
 	}
 }
