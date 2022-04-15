@@ -5,7 +5,7 @@ package project04;
  * @version 1.0
  */
 
-public class Node<E> {
+public class Node<E extends Comparable<E>> {
 
 	/**
 	 * The element of this node
