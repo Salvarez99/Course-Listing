@@ -5,7 +5,7 @@ package project04;
  * @version 1.0
  */
 
-public class ClassAttributes {
+public class ClassAttributes implements Comparable<ClassAttributes> {
 	private int classNumber;
 	private String courseSubject;
 	private int catalogNumber;
@@ -66,6 +66,14 @@ public class ClassAttributes {
 
 	public void setLevel(String level) {
 		this.level = level;
+	}
+
+	@Override
+	public int compareTo(ClassAttributes course) {
+		if (this.classNumber > course.classNumber) {
+			return 1;
+		}else 
+			return 0;
 	}
 
 }
