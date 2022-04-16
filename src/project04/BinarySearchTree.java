@@ -54,7 +54,7 @@ public class BinarySearchTree<E extends Comparable<E>>{
 
 	}
 
-	public void insert(TreeNode<E> newTreeNode){
+	public void add(TreeNode<E> newRoot, TreeNode<E> newTreeNode){
 		//Needs to be implemented
 		/*
 		 * CASE 1:
@@ -73,9 +73,10 @@ public class BinarySearchTree<E extends Comparable<E>>{
 		 * 	CurrentTreeNode has right child and no left child
 		 * 
 		 */
+		current = newRoot;
 
-		if(isEmpty() == true && this.current == this.root) {
-			//Tree is empty and current is equal to root
+		if(isEmpty() == true) {
+			//Tree is empty
 
 			this.root = newTreeNode;
 			this.current = this.root;
@@ -90,13 +91,13 @@ public class BinarySearchTree<E extends Comparable<E>>{
 				current.setRight(newTreeNode);
 				current = current.getRight();
 				count++;
-				
+
 			}else{
 				//newTreeNode is less than or equal to currenNode
 				current.setLeft(newTreeNode);
 				current = current.getLeft();
 				count++;
-				
+
 			}
 		}else if (this.current.getLeft() != null && this.current.getRight() != null){
 			//currentNode has both children
@@ -104,12 +105,12 @@ public class BinarySearchTree<E extends Comparable<E>>{
 			if (newTreeNode.getItem().compareTo(current.getItem()) == 0) {
 				//newTreeNode is greater than currentNode	
 				current = current.getRight();
-				insert(current);
-				
+				add(current, newTreeNode);
+
 			}else{
 				//newTreeNode is less than or equal to currenNode
 				current = current.getLeft();
-				insert(current);
+				add(current, newTreeNode);
 
 			}
 
@@ -121,11 +122,11 @@ public class BinarySearchTree<E extends Comparable<E>>{
 				current.setRight(newTreeNode);
 				current = current.getRight();
 				count++;
-				
+
 			}else{
 				//newTreeNode is less than or equal to currenNode
 				current = current.getLeft();
-				insert(current);
+				add(current, newTreeNode);
 
 			}
 
@@ -136,8 +137,8 @@ public class BinarySearchTree<E extends Comparable<E>>{
 			if (newTreeNode.getItem().compareTo(current.getItem()) == 0) {
 				//newTreeNode is greater than currentNode	
 				current = current.getRight();
-				insert(current);
-				
+				add(current, newTreeNode);
+
 			}else{
 				//newTreeNode is less than or equal to currenNode
 				current.setLeft(newTreeNode);
@@ -147,8 +148,10 @@ public class BinarySearchTree<E extends Comparable<E>>{
 			}
 
 		}
+	}
 
-		this.current = root;
+	public void insert(TreeNode<E> newTreeNode){
+		add(this.root, newTreeNode);
 
 	}
 
