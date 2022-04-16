@@ -6,21 +6,21 @@ package project04;
  */
 
 public class TreeNode<E extends Comparable<E>> {
-
+	
 	/**
 	 * The element of this node
 	 */
-	Object item;
+	private E item;
 	
 	/**
 	 * The link to the left node
 	 */
-	TreeNode<E> left;
+	private TreeNode<E> left;
 	
 	/**
 	 * The link to the right node
 	 */
-	TreeNode<E> right;
+	private TreeNode<E> right;
 	
 	/**
 	 * Constructs a default node.
@@ -30,12 +30,22 @@ public class TreeNode<E extends Comparable<E>> {
 	}
 	
 	/**
+	 * Constructs a node with an item.
+	 * @param item A reference to the item of this node
+	 */
+	public TreeNode(E item) {
+		this.item = item;
+		this.left = null;
+		this.right = null;
+	}
+	
+	/**
 	 * Constructs a node with an item and a link to left node and right node.
 	 * @param item A reference to the item of this node
 	 * 		  left A reference to the left node 
 	 * 		  right A reference to the right node
 	 */
-	public TreeNode(Object item, TreeNode<E> left, TreeNode<E> right) {
+	public TreeNode(E item, TreeNode<E> left, TreeNode<E> right) {
 		this.item = item;
 		this.left = left;
 		this.right = right;
@@ -46,7 +56,7 @@ public class TreeNode<E extends Comparable<E>> {
 	 * @param item A reference to the item of this node
 	 * 		  left A reference to the left node
 	 */
-	public TreeNode(TreeNode<E> left, Object item) {
+	public TreeNode(TreeNode<E> left, E item) {
 		this.left = left;
 		this.item = item;
 	}
@@ -56,7 +66,7 @@ public class TreeNode<E extends Comparable<E>> {
 	 * @param item A reference to the item of this node
 	 * 		  right A reference to the right node
 	 */
-	public TreeNode(Object item, TreeNode<E> right) {
+	public TreeNode(E item, TreeNode<E> right) {
 		this.item = item;
 		this.right = right;
 	}
@@ -65,7 +75,7 @@ public class TreeNode<E extends Comparable<E>> {
 	 * Returns the item of this node.
 	 * @return The item of this node
 	 */
-	public Object getItem() {
+	public E getItem() {
 		return item;
 	}
 	
@@ -73,7 +83,7 @@ public class TreeNode<E extends Comparable<E>> {
 	 * Changes the item of this node.
 	 * @param A reference to an item
 	 */
-	public void setItem(Object item) {
+	public void setItem(E item) {
 		this.item = item;
 	}
 	
@@ -120,4 +130,5 @@ public class TreeNode<E extends Comparable<E>> {
 	public boolean equals(Object item){
 		return this.item == item;
 	}
+	
 }
