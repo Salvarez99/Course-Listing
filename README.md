@@ -4,7 +4,7 @@ Uses a BST ADT
 ## Project Description
 Inputs courses via their course number into a binary search tree. Makes use of Linked List 
 
-## To-DO
+## To-Do
 -Change insert() to allow Course objects to be passed through and inserted to BST rather than TreeNodes
 
 ## Issues
