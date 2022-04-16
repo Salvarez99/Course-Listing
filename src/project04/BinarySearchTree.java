@@ -9,30 +9,30 @@ import java.lang.reflect.Array;
 
 public class BinarySearchTree<E extends Comparable<E>>{
 
-	TreeNode<E> root;
-	TreeNode<E> current;
-	int count;
+	private TreeNode<E> root;
+	private TreeNode<E> current = this.root;
+	private int count;
 
 	public BinarySearchTree(){
 		this.root = new TreeNode<E>();
-		this.current = new TreeNode<E>();
+		this.current = this.root;
 		this.count = 0;
 	}
 
 	public BinarySearchTree(E rootItem){
 		this.root = new TreeNode<E>(rootItem, null, null);
 		this.current = this.root;
-		this.count = 0;
+		this.count++;
 	}
 
 	public TreeNode<E> getRoot(){
-		return root;
+		return this.root;
 
 	}
 
 	public void changeRoot(TreeNode<E> newRoot){
 		//Needs to be implemented
-		
+
 	}
 
 	public boolean isEmpty(){
@@ -43,7 +43,9 @@ public class BinarySearchTree<E extends Comparable<E>>{
 	}
 
 	public void makeEmpty(){
-		root = new TreeNode<E>();
+		this.root = new TreeNode<E>();
+		this.current = this.root;
+		this.count = 0;
 	}
 
 	public boolean search(TreeNode<E> newTreeNode){
@@ -54,21 +56,100 @@ public class BinarySearchTree<E extends Comparable<E>>{
 
 	public void insert(TreeNode<E> newTreeNode){
 		//Needs to be implemented
-		//if empty add root
-		
-		//else if root has no children, compare node to root
-		
-		//else if root has children, compare node to root then move to child and compare
-		
-		//else set node equal to left or right depending on comparison
-		
-		if (isEmpty() == true) {
+		/*
+		 * CASE 1:
+		 *	Tree is empty
+		 *
+		 * CASE 2: 
+		 * 	CurrentTreeNode has no children
+		 * 
+		 * CASE 3:
+		 * 	CurrentTreeNode has both children
+		 * 
+		 * CASE 4: 
+		 * 	CurrentTreeNode has left child and no right child
+		 * 
+		 * CASE 5: 
+		 * 	CurrentTreeNode has right child and no left child
+		 * 
+		 */
+
+		if(isEmpty() == true && this.current == this.root) {
+			//Tree is empty and current is equal to root
+
 			this.root = newTreeNode;
-		}else if (this.root.getLeft() == null && this.root.getRight() == null) {
-			
+			this.current = this.root;
+			count++;
+
+		}else if (this.current.getLeft() == null && this.current.getRight() == null) {
+			//currentNode has no children
+
+			if (newTreeNode.getItem().compareTo(current.getItem()) == 0) {
+				//newTreeNode is greater than currentNode	
+
+				current.setRight(newTreeNode);
+				current = current.getRight();
+				count++;
+				
+			}else{
+				//newTreeNode is less than or equal to currenNode
+				current.setLeft(newTreeNode);
+				current = current.getLeft();
+				count++;
+				
+			}
+		}else if (this.current.getLeft() != null && this.current.getRight() != null){
+			//currentNode has both children
+
+			if (newTreeNode.getItem().compareTo(current.getItem()) == 0) {
+				//newTreeNode is greater than currentNode	
+				current = current.getRight();
+				insert(current);
+				
+			}else{
+				//newTreeNode is less than or equal to currenNode
+				current = current.getLeft();
+				insert(current);
+
+			}
+
+		}else if (this.current.getLeft() != null && this.current.getRight() == null){
+			//currentNode has left child
+
+			if (newTreeNode.getItem().compareTo(current.getItem()) == 0) {
+				//newTreeNode is greater than currentNode	
+				current.setRight(newTreeNode);
+				current = current.getRight();
+				count++;
+				
+			}else{
+				//newTreeNode is less than or equal to currenNode
+				current = current.getLeft();
+				insert(current);
+
+			}
+
 		}
-		
-		
+		else if (this.current.getLeft() == null && this.current.getRight() != null){
+			//currentNode has right child
+
+			if (newTreeNode.getItem().compareTo(current.getItem()) == 0) {
+				//newTreeNode is greater than currentNode	
+				current = current.getRight();
+				insert(current);
+				
+			}else{
+				//newTreeNode is less than or equal to currenNode
+				current.setLeft(newTreeNode);
+				current = current.getLeft();
+				count++;
+
+			}
+
+		}
+
+		this.current = root;
+
 	}
 
 	public void delete(){

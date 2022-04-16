@@ -70,7 +70,7 @@ public class Course implements Comparable<Course> {
 
 	@Override
 	public int compareTo(Course course) {
-		if (this.classNumber > course.classNumber) {
+		if (this.getClassNumber() < course.getClassNumber() || this.getClassNumber() == course.getClassNumber()) {
 			return 1;
 		}else 
 			return 0;
