@@ -5,7 +5,8 @@ Uses a BST ADT
 Inputs courses via their course number into a binary search tree. Makes use of Linked List 
 
 ## To-Do
--Change insert() to allow Course objects to be passed through and inserted to BST rather than TreeNodes
+[] Change insert() to allow Course objects to be passed through and inserted to BST rather than TreeNodes
+[] Update UML to add add() method
 
 ## Issues
 [Fixed] Ran into a problem where BST could not be made up of Course
