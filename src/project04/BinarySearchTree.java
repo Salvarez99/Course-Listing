@@ -152,6 +152,7 @@ public class BinarySearchTree<E extends Comparable<E>>{
 
 	public void insert(E item){
 		TreeNode<E> newTreeNode = new TreeNode<E>(item);
+		add(this.getRoot(), newTreeNode);
 
 	}
 
