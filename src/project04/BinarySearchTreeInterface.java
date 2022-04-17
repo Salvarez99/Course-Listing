@@ -44,7 +44,7 @@ public interface BinarySearchTreeInterface<E extends Comparable<E>> {
 	  * inserts node into BST
 	  * @param TreeNode<E>
 	  */
-	 public void insert(TreeNode<E> newTreeNode);
+	 public void insert(E item);
 	 
 	 /*
 	  * deletes current TreeNode

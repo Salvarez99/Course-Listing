@@ -22,23 +22,7 @@ public class Helper {
 		Course obj8 = new Course(220, "Science", 401, "Title", "Undergraduate");
 		
 		BinarySearchTree<Course> tree = new BinarySearchTree<Course>(obj);
-		
-		TreeNode<Course> TN = new TreeNode<Course>(obj2);
-		TreeNode<Course> TN2 = new TreeNode<Course>(obj3);
-		TreeNode<Course> TN3 = new TreeNode<Course>(obj4);
-		TreeNode<Course> TN4 = new TreeNode<Course>(obj5);
-		TreeNode<Course> TN5 = new TreeNode<Course>(obj6);
-		TreeNode<Course> TN6 = new TreeNode<Course>(obj7);
-		TreeNode<Course> TN7 = new TreeNode<Course>(obj8);
-		
-		tree.insert(TN);
-		tree.insert(TN2);
-		tree.insert(TN3);
-		tree.insert(TN4);
-		tree.insert(TN5);
-		tree.insert(TN6);
-		tree.insert(TN7);
-		
+	
 		System.out.println(tree.size());
 		tree.makeEmpty();
 		System.out.println(tree.size());
