@@ -1,7 +1,5 @@
 package project04;
 
-import java.util.ArrayList;
-
 public class Helper {
 	public static void start(){
 		create();
@@ -25,22 +23,19 @@ public class Helper {
 		
 		BinarySearchTree<Course> tree = new BinarySearchTree<Course>(obj);
 		
-		TreeNode<Course> TN = new TreeNode<Course>(obj2);
-		TreeNode<Course> TN2 = new TreeNode<Course>(obj3);
-		TreeNode<Course> TN3 = new TreeNode<Course>(obj4);
-		TreeNode<Course> TN4 = new TreeNode<Course>(obj5);
-		TreeNode<Course> TN5 = new TreeNode<Course>(obj6);
-		TreeNode<Course> TN6 = new TreeNode<Course>(obj7);
-		TreeNode<Course> TN7 = new TreeNode<Course>(obj8);
+
 		
-		tree.insert(TN);
-		tree.insert(TN2);
-		tree.insert(TN3);
-		tree.insert(TN4);
-		tree.insert(TN5);
-		tree.insert(TN6);
-		tree.insert(TN7);
+		tree.insert(obj2);
+		tree.insert(obj3);
+		tree.insert(obj4);
+		tree.insert(obj5);
+		tree.insert(obj6);
+		tree.insert(obj7);
+		tree.insert(obj8);
 		
 		System.out.println(tree.size());
+		tree.makeEmpty();
+		System.out.println(tree.size());
+		
 	}
 }
