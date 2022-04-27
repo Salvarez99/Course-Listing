@@ -29,13 +29,15 @@ public class Helper {
 		
 		System.out.println("Search for " + courseList.get(7) + ":\n" + tree.search(courseList.get(0)) + "\n");
 		
-		
+		System.out.println("Inserting: " + insert + "\n" );
 		tree.insert(insert);
 		System.out.println("Search for " + insert + ":\n" + tree.search(insert) + "\n");
+		System.out.println("Tree size: " + tree.size() + "\n");
 		
-		tree.delete(tree.getRoot(), insert); //works
-		System.out.println("Search for " + insert + ":\n");//works
-		tree.search(insert);//issues
+		
+		System.out.println("Deleting: " + insert + "\n");
+		tree.delete(tree.getRoot(), insert);
+		System.out.println("Tree size: " + tree.size() + "\n");
 		
 		System.out.println(tree.getTreeNode(tree.getRoot(), courseList.get(3)) + "\n");
 		

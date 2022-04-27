@@ -51,7 +51,7 @@ public class BinarySearchTree<E extends Comparable<E>>{
 
 	public boolean search(E item){
 
-		TreeNode<E> searchNode = getTreeNode(root, item);
+		TreeNode<E> searchNode = getTreeNode(getRoot(), item);
 
 		if (searchNode.getItem().compareTo(item) == 2)
 			return true;
@@ -252,6 +252,10 @@ public class BinarySearchTree<E extends Comparable<E>>{
 
 		TreeNode<E> lookUp = new TreeNode<E>(item);
 
+
+
+
+
 		if (parent.getItem().compareTo(lookUp.getItem()) == 2) {
 			return parent;
 		}
@@ -262,20 +266,21 @@ public class BinarySearchTree<E extends Comparable<E>>{
 			}else
 				return getTreeNode(parent.getRight(), lookUp.getItem());
 
-
 		}else if (parent.getRight() == null) {
 
 			return getTreeNode(parent.getLeft(), lookUp.getItem());
 		}else if (parent.getLeft() == null) {
 
 			return getTreeNode(parent.getRight(), lookUp.getItem());
+		}		else if(parent.equals(null) && !lookUp.equals(parent)){
+			return null;
 		}else 
 		{
 			//throw if both dont exist
 			throw new TreeException("Node not found in tree.");
-			
+
 		}
-		
+
 		//return null;
 	}
 
@@ -339,14 +344,14 @@ public class BinarySearchTree<E extends Comparable<E>>{
 	public LinkedList<E> sort(){
 		LinkedList<E> sortedTree = new LinkedList<>();
 		BinarySearchTreeIterator<E> treeIt = constructIterator(this);
-		
+
 		treeIt.setInorder();
-		
+
 		while(treeIt.hasNext()){
 			sortedTree.add(treeIt.next());
-			
+
 		}
-		
+
 		return sortedTree;
 	}
 
@@ -356,14 +361,14 @@ public class BinarySearchTree<E extends Comparable<E>>{
 	}
 
 	public Course[] convertBSTtoArr(){
-		
+
 		Course array[] = new Course [this.size()];
 		LinkedList<E> sortedTree = sort();
-		
+
 		for (int i = 0; i < sortedTree.size(); i++) {
 			array[i] = (Course) sortedTree.get(i);
 		}
-		
+
 		return array;
 	}
 }
