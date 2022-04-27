@@ -1,0 +1,20 @@
+3856	ICSI	201	Intro to Comp Sci		Undergraduate
+3862	ICSI	210	Discrete Structures		Undergraduate
+6462	ICSI	213	Data Structures			Undergraduate
+9337	ICSI	500	Operating Systems		Graduate
+7890	ICSI	503	Algorithms & Data Structures	Graduate
+8426	ICSI	509	Automata & Formal Languages	Graduate
+6160	ICSI	518	Software Engineering		Graduate
+6452	ICSI	521	Discrete Math with Application	Graduate
+8743	ICSI	522	Introduction to VLSI		Graduate
+9376	ICSI	524	Computer Security		Graduate
+7536	ICSI	531	Data Mining			Graduate
+5330	ICSI	535	Artificial Intelligence		Graduate
+4717	ICSI	551	Bayesian Data Analysis		Graduate
+8192	ICSI	552	Robotics			Graduate
+8194	ICSI	553	Cyber-Physical Systems		Graduate
+9338	ICSI	609	Formal Lang and Thry of Comptn	Graduate
+3873	ICSI	680	Master's Project		Graduate
+3879	ICSI	694	Directed Readings in Comp Sci	Graduate
+3884	ICSI	697	Independent Study and Research	Graduate
+7250	ICSI	698	Internship			Graduate

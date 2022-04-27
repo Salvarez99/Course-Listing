@@ -1,34 +1,151 @@
 package project04;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Scanner;
+import java.util.StringTokenizer;
 
 public class Helper {
-	public static void start(){
-		create();
-	}
+	public static void start() throws FileNotFoundException{
+		ArrayList<Integer> intList = new ArrayList<>();
+		ArrayList<String> stringList = new ArrayList<>();
+		ArrayList<Course> courseList = new ArrayList<>();
+		BinarySearchTree<Course> tree = new BinarySearchTree<>();
+		LinkedList<Course> sortedTree;
+		Course[] courseArray;
+		Course insert = new Course(2000, "ICSI", 120, "Example Course", "Undergraduate");
 
-	public static void create(){
-
-		Course obj = new Course(123, "Science", 401, "Title", "Undergraduate");
-		Course obj2 = new Course(205, "Science", 401, "Title", "Undergraduate");
-		Course obj3 = new Course(100, "Science", 401, "Title", "Undergraduate");
-		Course obj4 = new Course(50, "Science", 401, "Title", "Undergraduate");
-		Course obj5 = new Course(20, "Science", 401, "Title", "Undergraduate");
-		Course obj6 = new Course(75, "Science", 401, "Title", "Undergraduate");
-		Course obj7 = new Course(175, "Science", 401, "Title", "Undergraduate");
-		Course obj8 = new Course(220, "Science", 401, "Title", "Undergraduate");
+		create(intList, stringList);
+		createCourses(intList, stringList, courseList);
+		addToBST(courseList, tree);
 		
-		BinarySearchTree<Course> tree = new BinarySearchTree<Course>(obj);
-	
-		tree.insert(obj2);
-		tree.insert(obj3);
-		tree.insert(obj4);
-		tree.insert(obj5);
-		tree.insert(obj6);
-		tree.insert(obj7);
-		tree.insert(obj8);
-	
-		System.out.println(tree.size());
+		System.out.println("Root: " + tree.getRoot() + "\n");
+		
+		System.out.println("Is Tree Empty? " + tree.isEmpty() + "\n");
+		
+		System.out.println("Tree size: " + tree.size() + "\n");
+		
+		
+		System.out.println("Search for " + courseList.get(7) + ":\n" + tree.search(courseList.get(0)) + "\n");
+		
+		System.out.println("Inserting: " + insert + "\n" );
+		tree.insert(insert);
+		System.out.println("Search for " + insert + ":\n" + tree.search(insert) + "\n");
+		System.out.println("Tree size: " + tree.size() + "\n");
+		
+		
+		System.out.println("Deleting: " + insert + "\n");
+		tree.delete(tree.getRoot(), insert);
+		System.out.println("Tree size: " + tree.size() + "\n");
+		
+		System.out.println(tree.getTreeNode(tree.getRoot(), courseList.get(3)) + "\n");
+		
+		System.out.println("Sort() ");
+		sortedTree = sortTree(tree);
+		displaySortedTree(sortedTree);
+		
+		System.out.println("\nConvertBSTtoArr() ");
+		courseArray = tree.convertBSTtoArr();
+		displaySortedArray(courseArray);
+		
 		tree.makeEmpty();
-		System.out.println(tree.size());
-		
+		System.out.println("\nIs Tree Empty? " + tree.isEmpty() + "\n");
+		System.out.println("Tree size: " + tree.size() + "\n");
+
+	
 	}
+
+	public static void create(ArrayList<Integer> intList, ArrayList<String> courseList) throws FileNotFoundException{
+
+		ArrayList<String> stringList = new ArrayList<>();
+		ArrayList<StringTokenizer> stringTokenList = new ArrayList<>();
+		StringTokenizer stringToken;
+
+		File file= new File("dataList.txt");
+		Scanner scan = new Scanner(file);
+		int i = 0;
+
+		//scans textfile and adds to String arraylist
+		while (scan.hasNext()) {
+			stringList.add(scan.nextLine());
+		}
+
+		//output String arraylist
+		while(i < stringList.size()){
+			stringToken = new StringTokenizer(stringList.get(i) , "\t");
+			stringTokenList.add(stringToken);
+			i++;
+		}
+
+		int counter = 0;
+		i = 0;
+
+		//Loops through stringList
+		while(i < stringList.size()){
+			//Loops through all tokens in StringTokenList
+			while (stringTokenList.get(i).hasMoreTokens()) {
+				//if # mod 5 is equal to 0 or 2, print token
+				if (counter % 5 == 0 || counter % 5 == 2) {
+					intList.add(Integer.parseInt(stringTokenList.get(i).nextToken()));
+
+				}
+				//else move token forward without printing
+				else{
+					courseList.add(stringTokenList.get(i).nextToken());
+				}
+				counter++;
+			}
+			i++;
+		}
+		scan.close();
+	}
+
+	public static void createCourses(ArrayList<Integer> intList, ArrayList<String> stringList, ArrayList<Course> courseList){
+		for (int i = 0; i < intList.size(); i++) {
+			Course c = new Course(intList.get(i), intList.get(i + 1));
+			courseList.add(c);
+			i = i + 1;
+		}
+
+		int i = 0;
+		while(i < stringList.size() / 3) {
+			for (int j = 0; j < courseList.size(); j++) {
+				courseList.get(j).setCourseSubject(stringList.get(i));
+				courseList.get(j).setClassTitle(stringList.get(i + 1));
+				courseList.get(j).setLevel(stringList.get(i + 2));
+				i += 3;
+
+			}
+		}
+	}
+
+	public static void addToBST(ArrayList<Course> courseList, BinarySearchTree<Course> tree){
+		
+		for (int i = 0; i < courseList.size(); i++) {
+			tree.insert(courseList.get(i));
+		}
+	}
+
+	public static LinkedList<Course> sortTree(BinarySearchTree<Course> tree){
+		return tree.sort();
+
+	}
+
+	public static void displaySortedTree(LinkedList<Course> sortedTree){
+		
+		int i = 0;
+		while(i < sortedTree.size()){
+			System.out.println(sortedTree.get(i));
+			i++;
+		}
+	}
+
+	public static void displaySortedArray(Course[] courseArray){
+		for (int i = 0; i < courseArray.length; i++) {
+			System.out.println(courseArray[i]);
+		}
+	}
+	
+	
 }
