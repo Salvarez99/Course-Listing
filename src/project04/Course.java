@@ -6,6 +6,7 @@ package project04;
  */
 
 public class Course implements Comparable<Course> {
+
 	private int classNumber;
 	private String courseSubject;
 	private int catalogNumber;
@@ -20,6 +21,11 @@ public class Course implements Comparable<Course> {
 		this.level = "";
 	}
 
+	public Course(int classNumber, int catalogNumber) {
+		this.classNumber = classNumber;
+		this.catalogNumber = catalogNumber;
+	}
+	
 	public Course(int classNumber, String courseSubject, int catalogNumber, String classTitle, String level) {
 		this.classNumber = classNumber;
 		this.courseSubject = courseSubject;
@@ -67,13 +73,26 @@ public class Course implements Comparable<Course> {
 	public void setLevel(String level) {
 		this.level = level;
 	}
+	
+	@Override 
+	public String toString(){
+		return this.getClassNumber() + " " + this.getCourseSubject() + " " + this.getCatalogNumber() + " " + this.getClassTitle() + " " + this.getLevel();
+	}
 
 	@Override
 	public int compareTo(Course course) {
-		if (this.getClassNumber() < course.getClassNumber() || this.getClassNumber() == course.getClassNumber()) {
+		if (this.getClassNumber() < course.getClassNumber()) {
+			//less than 
 			return 1;
-		}else 
-			return 0;
+		}
+		else if(this.getClassNumber() == course.getClassNumber()){
+			//equal to
+
+			return 2;
+		}
+		//greater than 
+		return 0;
 	}
+
 
 }
