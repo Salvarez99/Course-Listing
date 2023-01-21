@@ -1,4 +1,4 @@
-# Albany-Project04
+# Course Listing
 Uses a BST ADT
 
 ## Project Description
